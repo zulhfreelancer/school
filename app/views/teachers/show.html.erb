@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @teacher.name %>
+</p>
+
+<table>
+<tr>
+<th>Student Name</th>
+<th>Quantity</th>
+</tr>
+<% @teacher.courses.each do |c| %>
+    <tr>
+    	<td><%= c.student.name %></td>
+    	<td><%= c.quantity %></td>
+    </tr>
+<% end %>
+</table>
+
+<%= link_to 'Add student' %>
+
+<br>
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

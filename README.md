@@ -1,0 +1,1 @@
+Rails has_many :through association practice.
