@@ -1,6 +1,6 @@
 hello from add_student!
 
-<%= form_for(@course) do |f| %>
+<%= form_for(@course, url: courses_path, method: :post) do |f| %>
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -12,6 +12,9 @@ hello from add_student!
       </ul>
     </div>
   <% end %>
+
+
+  <%= f.number_field :teacher_id, value: @teacher.id %>
 
   <div class="field">
     <%= f.select :student_id, Student.all.collect { |p| [ p.name, p.id ] } %>
