@@ -1,5 +1,3 @@
-hello from add_student!
-
 <%= form_for(@course, url: courses_path, method: :post) do |f| %>
   <% if @course.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +12,7 @@ hello from add_student!
   <% end %>
 
 
-  <%= f.number_field :teacher_id, value: @teacher.id %>
+  <%= f.hidden_field :teacher_id, value: @teacher.id %>
 
   <div class="field">
     <%= f.select :student_id, Student.all.collect { |p| [ p.name, p.id ] } %>
@@ -26,3 +24,5 @@ hello from add_student!
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', teacher_path %>
